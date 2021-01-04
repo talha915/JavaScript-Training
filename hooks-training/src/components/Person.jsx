@@ -1,9 +1,14 @@
 function Person(props) {
     
     const personDetails=()=> {
-        console.log("Propsssss: ", props.details);
-        let personData = props.details;
-        
+        let personData = props.details.map((data, index) => {
+            return (
+                <li key={index}>
+                    Id: {data.id}, Name: {data.name}
+                </li>
+            )
+        })
+        return personData;
     }
 
     return(
