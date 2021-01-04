@@ -19,6 +19,9 @@ class Main extends Component {
     render() {
         return (
             <div>
+                <button>
+                    Click Me to update data
+                </button>
                 <Person details={this.state.personDetails}/>
             </div>
         )
