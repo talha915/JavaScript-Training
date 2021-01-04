@@ -1,7 +1,14 @@
-function Person() {
+function Person(props) {
+    
+    const personDetails=()=> {
+        console.log("Propsssss: ", props.details);
+        let personData = props.details;
+        
+    }
+
     return(
         <div>
-            Person
+            Person: {personDetails()}
         </div>
     )
 }

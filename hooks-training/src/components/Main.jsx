@@ -4,10 +4,22 @@ import React, { Component } from 'react';
 import Person from './Person';
 
 class Main extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            personDetails: [
+                { 'id': 1, 'name': 'A' },
+                { 'id': 2, 'name': 'B' },
+                { 'id': 3, 'name': 'C' }
+            ]
+        }
+    }
+
     render() {
-        return(
+        return (
             <div>
-                <Person />
+                <Person details={this.state.personDetails}/>
             </div>
         )
     }
