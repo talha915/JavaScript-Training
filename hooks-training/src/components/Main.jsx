@@ -16,10 +16,20 @@ class Main extends Component {
         }
     }
 
+    updatePersons=()=> {
+        this.setState({
+            personDetails: [
+                { 'id': 4, 'name': 'D' },
+                { 'id': 5, 'name': 'E' },
+                { 'id': 6, 'name': 'F' }
+            ]
+        })
+    }
+
     render() {
         return (
             <div>
-                <button>
+                <button onClick={(e)=>this.updatePersons()}>
                     Click Me to update data
                 </button>
                 <Person details={this.state.personDetails}/>
