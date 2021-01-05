@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 function Person(props) {
-    
+    const [value, setValue] = useState(true);
+
     const personDetails=()=> {
         let personData = props.details.map((data, index) => {
             return (
