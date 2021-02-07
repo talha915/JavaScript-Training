@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Post = mongoose.model("Post");
+const Categories = mongoose.model("Category");
 
 router.get("/posts", (req, res)=> {
     Post.find()
@@ -22,19 +23,24 @@ router.post("/add-posts", (req, res)=> {
         res.send({ msg: "All Fields are required" });
     }
 
-    const post = new Post({
-        title,
-        description,
-        imgUrl,
-        category
-    });
-
-    post.save.then(()=> {
-        res.send({
-            msg: 'Post created'
+    Categories.findOne({_id: category.id})
+    .then((cat)=> {
+        const post = new Post({
+            title,
+            description,
+            imgUrl,
+            category: cat
         });
+    
+        post.save().then(()=> {
+            res.send({
+                msg: 'Post created'
+            });
+        })  
     })
-
+    .catch((err)=> {
+        res.send({"Error": err});
+    });
 });
 
 module.exports = router;

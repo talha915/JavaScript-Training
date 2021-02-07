@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Categories = mongoose.model('Category');
 
-router.get('categories', (req, res)=> {
+router.get('/categories', (req, res)=> {
     Categories.find()
     .then((category)=> {
         res.json({category});
