@@ -22,10 +22,14 @@ mongoose.connection.on("error", (error)=> {
     console.log("Error: ", error);
 });
 
+// Models
+require("./models/post");
+require("./models/category");
+
+app.use(express.json());
+
 // Routes
-app.get('/', (req, res)=> {
-    res.send("Hello World !");
-});
+app.use(require("./routes/post"));
 
 app.listen(PORT, ()=> {
     console.log("Server is running at: ", PORT);
