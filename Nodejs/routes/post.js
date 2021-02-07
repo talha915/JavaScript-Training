@@ -15,4 +15,26 @@ router.get("/posts", (req, res)=> {
     }) 
 });
 
+router.post("/add-posts", (req, res)=> {
+    const { title, description, imgUrl, category } = req.body;
+    
+    if(!title, !description, !imgUrl, !category) {
+        res.send({ msg: "All Fields are required" });
+    }
+
+    const post = new Post({
+        title,
+        description,
+        imgUrl,
+        category
+    });
+
+    post.save.then(()=> {
+        res.send({
+            msg: 'Post created'
+        });
+    })
+
+});
+
 module.exports = router;
