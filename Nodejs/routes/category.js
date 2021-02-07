@@ -14,4 +14,20 @@ router.get('categories', (req, res)=> {
     });
 });
 
+router.post('/add-category', (req, res)=> {
+    const { name } = req.body;
+
+    const category = new Categories({
+        name
+    });
+
+    category.save().
+    then(()=> {
+        res.send({msg: 'Category Added'});
+    })
+    .catch((err)=> {
+        res.send({msg: err});
+    });
+})
+
 module.exports = router;
