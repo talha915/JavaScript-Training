@@ -30,6 +30,7 @@ app.use(express.json());
 
 // Routes
 app.use(require("./routes/post"));
+app.use(require("./routes/category"));
 
 app.listen(PORT, ()=> {
     console.log("Server is running at: ", PORT);
